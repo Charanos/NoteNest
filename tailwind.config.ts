@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        bgColor: "#110e27",
         textColor: "#E2F3F5",
         accentColor: "#3D5AF1",
         betaColor: "#120f25a4",
@@ -18,6 +19,7 @@ const config: Config = {
         secondaryColor: "#22D1EE",
       },
       fontFamily: {
+        primaryFont: ["Nunito", "sans-serif"],
         secondaryFont: ["Montserrat", "sans-serif"],
       },
     },

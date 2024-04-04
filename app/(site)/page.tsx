@@ -1,7 +1,13 @@
+import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+import PageContent from "@/components/PageContent";
 
-export default function Home() {
+export const revalidate = 0;
+
+export default async function Home() {
+  const songs = await getSongs();
+
   return (
     <div className="text-textColor">
       <div className="capitalize bg-alphaColor rounded-lg w-full h-screen overflow-hidden overflow-y-auto backdrop-blur-md">
@@ -19,12 +25,13 @@ export default function Home() {
           </div>
         </Header>
 
-        <div className="mt-6 mb-7 px-6">
+        <div className="mt-6 w-full px-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-semibold capitalize">release radar</h1>
+            <h1 className="text-2xl font-semibold capitalize">
+              latest uploads
+            </h1>
           </div>
-
-          <div className="capitalize mt-6">list of songs!!</div>
+          <PageContent songs={songs} />
         </div>
       </div>
     </div>

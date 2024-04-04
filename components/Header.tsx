@@ -63,12 +63,12 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         <div className="flex md:hidden gap-x-2 items-center">
           <button className="rounded-full p-2  bg-betaColor flex items-center justify-center">
             <HiHome
-              className="text-textColor hover:opacity-75 transition "
               size={20}
+              className="text-textColor hover:opacity-75 transition "
             />
             <IoSearch
-              className="text-textColor hover:opacity-75 transition ml-5"
               size={20}
+              className="text-textColor hover:opacity-75 transition ml-5"
             />
           </button>
         </div>

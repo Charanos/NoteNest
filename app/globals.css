@@ -8,3 +8,24 @@ html, body, :root{
   background:linear-gradient(to bottom, #0f0c29, #12102e, #24243e);
   /* background: linear-gradient(185deg, #05000cbb,#15001fb0); */
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #110e27;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #36315f70;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #C850F2;
+}

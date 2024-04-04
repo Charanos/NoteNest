@@ -4,10 +4,12 @@ import { Nunito } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
-import SupabaseProviders from "@/providers/SupabaseProviders";
 import ToasterProvider from "@/providers/ToasterProvider";
+import getSongsByUserId from "@/actions/getSongsByUserId";
+import SupabaseProviders from "@/providers/SupabaseProviders";
+import Player from "@/components/Player";
 
-const nunito = Nunito({ subsets: ["latin"] });
+// const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Note Nest",
@@ -15,19 +17,24 @@ export const metadata: Metadata = {
     "Spotify Clone App. Code with Antonio. 20th March 2024, Wednesday.",
 };
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userSongs = await getSongsByUserId();
+
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className="font-primaryFont">
         <ToasterProvider />
         <SupabaseProviders>
           <UserProvider>
             <ModalProvider />
-            <Sidebar>{children}</Sidebar>
+            <Sidebar songs={userSongs}>{children}</Sidebar>
+            <Player />
           </UserProvider>
         </SupabaseProviders>
       </body>
